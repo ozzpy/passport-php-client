@@ -1,0 +1,54 @@
+/*
+ * Copyright (c) 2016, Inversoft Inc., All Rights Reserved
+ */
+savantVersion = "0.4.4"
+
+project(group: "com.inversoft.passport-wordpress-plugin", name: "passport-php-client", version: "0.1", licenses: ["ApacheV2_0"]) {
+  workflow {
+    standard()
+  }
+
+  publishWorkflow {
+    subversion(repository: "http://svn.inversoft.org/savant")
+  }
+
+  publications {
+    main {
+      publication(name: "passport-php-client", type: "zip", file: "build/passport-php-client.zip")
+    }
+  }
+}
+
+// Plugins
+dependency = loadPlugin(id: "org.savantbuild.plugin:dependency:${savantVersion}")
+file = loadPlugin(id: "org.savantbuild.plugin:file:${savantVersion}")
+idea = loadPlugin(id: "org.savantbuild.plugin:idea:${savantVersion}")
+release = loadPlugin(id: "org.savantbuild.plugin:release-git:${savantVersion}")
+
+target(name: "clean", description: "Cleans build directory") {
+  file.prune(dir: "build")
+}
+
+target(name: "int", description: "Releases a local integration build of the project") {
+
+  file.copy(to: "build/php") {
+    fileSet(dir: "src/main/php")
+  }
+
+  file.delete {
+    fileSet(dir: "build", includePatterns: [~/passport-php-client.+\.zip/])
+  }
+
+  file.zip(file: "build/passport-php-client.zip") {
+    fileSet(dir: "build/php", includePatterns: [])
+  }
+  dependency.integrate()
+}
+
+target(name: "idea", description: "Updates the IntelliJ IDEA module file") {
+  idea.iml()
+}
+
+target(name: "release", description: "Releases a full version of the project", dependsOn: ["int"]) {
+  release.release()
+}
