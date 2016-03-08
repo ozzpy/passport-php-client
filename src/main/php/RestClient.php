@@ -84,20 +84,8 @@ class RestClient
         if (substr($this->url, -1) != '?') {
           $this->url = $this->url . '?';
         }
-        $keys = array_keys($this->parameters);
-        foreach ($keys as $key) {
-          $values = $this->parameters[$key];
-          foreach ($values as $value) {
-            $this->url = $this->url . $key . "=" . $value;
-            if (end($values) != $value) {
-              $this->url = $this->url . "&";
-            }
-          }
-
-          if (end($keys) != $key) {
-            $this->url = $this->url . "&";
-          }
-        }
+        $params = http_build_query($this->parameters);
+        $this->url = $this->url . $params;
       }
 
       $curl = curl_init();
@@ -119,7 +107,7 @@ class RestClient
       } elseif ($this->method == 'DELETE') {
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
       }
-      if ($this->request != '') {
+      if ($this->request) {
         curl_setopt($curl, CURLOPT_POSTFIELDS, $this->request);
       }
 
@@ -236,13 +224,7 @@ class RestClient
       return $this;
     }
 
-    $values = $this->parameters[$name];
-    if (!$values) {
-      $values = array();
-    }
-
-    $values[] = $value;
-    $this->parameters[$name] = $values;
+    $this->parameters[$name] = $value;
 
     return $this;
   }

@@ -33,7 +33,7 @@ Class PassportClient
     $this->baseURL = $baseURL;
   }
 
-  private function start()
+  public function start()
   {
     $rest = new RestClient();
     return $rest->authorization($this->apiKey)->url($this->baseURL)->connectTimeout($this->connectTimeout)->readTimeout($this->readTimeout);
