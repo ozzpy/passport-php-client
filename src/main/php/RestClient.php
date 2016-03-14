@@ -1,8 +1,23 @@
 <?php
 
-/**
+/*
+ * Copyright (c) 2016, Inversoft Inc., All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific
+ * language governing permissions and limitations under the License.
+ *
  * @author Derek Klatt
  */
+
 class RestClient
 {
   public $headers = array();
@@ -70,15 +85,20 @@ class RestClient
 
   public function go()
   {
-    if (!$this->url) {
-      throw new Exception("You must specify a URL");
+    $response = new ClientResponse();
+
+    if (!$this->url || (bool)parse_url($this->url, PHP_URL_HOST) === FALSE) {
+      $e = new Exception("You must specify a URL");
+      $response->exception = $e;
+      return $response;
     }
 
     if (!$this->method) {
-      throw new Exception("You must specify a HTTP method");
+      $e = new Exception("You must specify a HTTP method");
+      $response->exception = $e;
+      return $response;
     }
 
-    $response = new ClientResponse();
     try {
       if ($this->parameters) {
         if (substr($this->url, -1) != '?') {
@@ -90,8 +110,10 @@ class RestClient
 
       $curl = curl_init();
       if (substr($this->url, 0, 5) == "https" && !$this->certificate) {
-        curl_setopt($curl, CURLOPT_SSLCERT, $this->certificate);
-        if (!$this->key) {
+        if($this->certificate) {
+          curl_setopt($curl, CURLOPT_SSLCERT, $this->certificate);
+        }
+        if ($this->key) {
           curl_setopt($curl, CURLOPT_SSLKEY, $this->key);
         }
       }
@@ -174,13 +196,13 @@ class RestClient
   public function post()
   {
     $this->method = "POST";
-    return $this;
+    return $this->headers("Content-Length:" . strlen($this->request));
   }
 
   public function put()
   {
     $this->method = "PUT";
-    return $this;
+    return $this->headers("Content-Length:" . strlen($this->request));
   }
 
   public function readTimeout($readTimeout)
@@ -192,7 +214,7 @@ class RestClient
   public function request($request)
   {
     $this->request = $request;
-    return $this->headers("Content-Type:application/json")->headers("Content-Length:" . strlen($request));
+    return $this->headers("Content-Type:application/json");
   }
 
   public function uri($uri)
