@@ -8,9 +8,9 @@ For additional information and documentation on Passport refer to [https://www.i
 ```bash
 $ mkdir ~/savant
 $ cd ~/savant
-$ wget http://savant.inversoft.org/org/savantbuild/savant-core/0.4.4/savant-0.4.4.tar.gz
-$ tar xvfz savant-0.4.4.tar.gz
-$ ln -s ./savant-0.4.4 current
+$ wget http://savant.inversoft.org/org/savantbuild/savant-core/1.0.0/savant-1.0.0.tar.gz
+$ tar xvfz savant-1.0.0.tar.gz
+$ ln -s ./savant-1.0.0 current
 $ export PATH=$PATH:~/savant/current/bin/
 ```
 
