@@ -49,6 +49,15 @@ target(name: "idea", description: "Updates the IntelliJ IDEA module file") {
   idea.iml()
 }
 
+target(name: "bundle", description: "Builds the project release bundle", dependsOn: "int") {
+  // Copy the zip to the bundle directory
+  file.prune(dir: "build/bundles/")
+  file.mkdir(dir: "build/bundles")
+  file.copy(to: "build/bundles") {
+    fileSet(dir: "build", includePatterns: [~/passport-php-client\.zip/])
+  }
+}
+
 target(name: "release", description: "Releases a full version of the project", dependsOn: ["int"]) {
   release.release()
 }
