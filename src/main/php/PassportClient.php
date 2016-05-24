@@ -45,12 +45,13 @@ Class PassportClient
    * actioner's is put into the request object.
    *
    * @param string $actioneeUserId The actionee's user id.
-   * @param string $actionRequest The action request that includes all of the information about the action being taken
-   * including the id of the action, any options and the duration (if applicable).
-   * @return ClientResponse When successful, the response will contain the a notification of the action. If there was a validation
-   * error or any other type of error, this will return the Errors object in the response. Additionally, if Passport
-   * could not be contacted because it is down or experiencing a failure, the response will contain an Exception, which
-   * could be an IOException.
+   * @param string $actionRequest  The action request that includes all of the information about the action being taken
+   *                               including the id of the action, any options and the duration (if applicable).
+   *
+   * @return ClientResponse When successful, the response will contain the a notification of the action. If there was a
+   *     validation error or any other type of error, this will return the Errors object in the response. Additionally,
+   *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function actionUser($actioneeUserId, $actionRequest)
   {
@@ -64,12 +65,13 @@ Class PassportClient
   /**
    * Cancels the user action.
    *
-   * @param string $actionId The action id of the action to cancel.
+   * @param string $actionId      The action id of the action to cancel.
    * @param string $actionRequest The action request that contains the information about the cancellation.
-   * @return ClientResponse When successful, the response will contain the a notification of the action. If there was a validation
-   * error or any other type of error, this will return the Errors object in the response. Additionally, if Passport
-   * could not be contacted because it is down or experiencing a failure, the response will contain an Exception, which
-   * could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the a notification of the action. If there was a
+   *     validation error or any other type of error, this will return the Errors object in the response. Additionally,
+   *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function cancelAction($actionId, $actionRequest)
   {
@@ -84,12 +86,14 @@ Class PassportClient
    * Changes a user's password using the verification id. This usually occurs after an email has been sent to the user
    * and they clicked on a link to reset their password.
    *
-   * @param string $verificationId The verification id used to find the user.
-   * @param string $changePasswordRequest The change password request that contains all of the information used to change the password.
-   * @return ClientResponse When successful, the response will contains no body, just a status code. If there was a validation error or
-   * any other type of error, this will return the Errors object in the response. Additionally, if Passport could not be
-   * contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   * @param string $verificationId        The verification id used to find the user.
+   * @param string $changePasswordRequest The change password request that contains all of the information used to
+   *                                      change the password.
+   *
+   * @return ClientResponse When successful, the response will contains no body, just a status code. If there was a
+   *     validation error or any other type of error, this will return the Errors object in the response. Additionally,
+   *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function changePassword($verificationId, $changePasswordRequest)
   {
@@ -103,11 +107,13 @@ Class PassportClient
   /**
    * Adds a comment to the user's account.
    *
-   * @param string $userCommentRequest The comment request that contains all of the information used to add the comment to the user.
-   * @return string ClientResponse When successful, the response will not contain a response object, it only contains the status code. If
-   * there was a validation error or any other type of error, this will return the Errors object in the response.
-   * Additionally, if Passport could not be contacted because it is down or experiencing a failure, the response will
-   * contain an Exception, which could be an IOException.
+   * @param string $userCommentRequest The comment request that contains all of the information used to add the comment
+   *                                   to the user.
+   *
+   * @return string ClientResponse When successful, the response will not contain a response object, it only contains
+   *     the status code. If there was a validation error or any other type of error, this will return the Errors
+   *     object in the response. Additionally, if Passport could not be contacted because it is down or experiencing a
+   *     failure, the response will contain an Exception, which could be an IOException.
    */
   public function commentOnUser($userCommentRequest)
   {
@@ -120,12 +126,14 @@ Class PassportClient
   /**
    * Creates an application. You can optionally specify an id for the application, but this is not required.
    *
-   * @param string $applicationId (Optional) The id to use for the application.
-   * @param string $applicationRequest The application request that contains all of the information used to create the application.
-   * @return ClientResponse When successful, the response will contains the application object. If there was a validation error or any
-   * other type of error, this will return the Errors object in the response. Additionally, if Passport could not be
-   * contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   * @param string $applicationId      (Optional) The id to use for the application.
+   * @param string $applicationRequest The application request that contains all of the information used to create the
+   *                                   application.
+   *
+   * @return ClientResponse When successful, the response will contains the application object. If there was a
+   *     validation error or any other type of error, this will return the Errors object in the response. Additionally,
+   *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function createApplication($applicationId, $applicationRequest)
   {
@@ -140,12 +148,14 @@ Class PassportClient
    * Creates a new role for an application. You must specify the id of the application you are creating the role for.
    * You can optionally specify an id for the role inside the ApplicationRole object itself, but this is not required.
    *
-   * @param string $applicationId The id of the application to create the role on.
-   * @param string $applicationRequest The application request that contains all of the information used to create the role.
-   * @return ClientResponse When successful, the response will contains the role object. If there was a validation error or any other
-   * type of error, his will return the Errors object in the response. Additionally, if Passport could not be contacted
-   * because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   * @param string $applicationId      The id of the application to create the role on.
+   * @param string $applicationRequest The application request that contains all of the information used to create the
+   *                                   role.
+   *
+   * @return ClientResponse When successful, the response will contains the role object. If there was a validation
+   *     error or any other type of error, his will return the Errors object in the response. Additionally, if Passport
+   *     could not be contacted because it is down or experiencing a failure, the response will contain an Exception,
+   *     which could be an IOException.
    */
   public function createApplicationRole($applicationId, $applicationRequest)
   {
@@ -159,15 +169,17 @@ Class PassportClient
 
   /**
    * Creates an audit log with the message and user name (usually an email). Audit logs should be written anytime you
-   * make changes to the Passport database. When using the Passport Backend web interface, any changes are automatically
+   * make changes to the Passport database. When using the Passport Backend web interface, any changes are
+   * automatically
    * written to the audit log. However, if you are accessing the API, you must write the audit logs yourself.
    *
-   * @param string $message The message for the audit log.
+   * @param string $message    The message for the audit log.
    * @param string $insertUser The user that took the action being logged.
-   * @return ClientResponse When successful, the response will not contain a response but only contains the status code. If there was a
-   * validation error or any other type of error, this will return the Errors object in the response. Additionally, if
-   * Passport could not be contacted because it is down or experiencing a failure, the response will contain an
-   * Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will not contain a response but only contains the status
+   *     code. If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
   public function createAuditLog($message, $insertUser)
   {
@@ -184,15 +196,18 @@ Class PassportClient
   }
 
   /**
-   * Creates an email template. You can optionally specify an id for the email template when calling this method, but it
+   * Creates an email template. You can optionally specify an id for the email template when calling this method, but
+   * it
    * is not required.
    *
-   * @param string $emailTemplateId (Optional) The id for the template.
-   * @param string $emailTemplateRequest The email template request that contains all of the information used to create the email template.
-   * @return ClientResponse When successful, the response will contain the email template object. If there was a validation error or
-   * any other type of error, this will return the Errors object in the response. Additionally, if Passport could not be
-   * contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   * @param string $emailTemplateId      (Optional) The id for the template.
+   * @param string $emailTemplateRequest The email template request that contains all of the information used to create
+   *                                     the email template.
+   *
+   * @return ClientResponse When successful, the response will contain the email template object. If there was a
+   *     validation error or any other type of error, this will return the Errors object in the response. Additionally,
+   *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function createEmailTemplate($emailTemplateId, $emailTemplateRequest)
   {
@@ -207,13 +222,14 @@ Class PassportClient
    * Creates a notification server. You can optionally specify an id for the notification server when calling this
    * method, but it is not required.
    *
-   * @param string $notificationServerId (Optional) The id for the notification server.
-   * @param string $notificationServerRequest The notification server request that contains all of the information used to create the
-   * notification server.
-   * @return ClientResponse When successful, the response will contain the notification server object. If there was a validation error
-   * or any other type of error, this will return the Errors object in the response. Additionally, if Passport could not
-   * be contacted because it is down or experiencing a failure, the response will contain an Exception, which could be
-   * an IOException.
+   * @param string $notificationServerId      (Optional) The id for the notification server.
+   * @param string $notificationServerRequest The notification server request that contains all of the information used
+   *                                          to create the notification server.
+   *
+   * @return ClientResponse When successful, the response will contain the notification server object. If there was a
+   *     validation error or any other type of error, this will return the Errors object in the response. Additionally,
+   *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function createNotificationServer($notificationServerId, $notificationServerRequest)
   {
@@ -227,12 +243,13 @@ Class PassportClient
   /**
    * Creates a user with an optional id.
    *
-   * @param string $userId (Optional) The id for the user.
+   * @param string $userId      (Optional) The id for the user.
    * @param string $userRequest The user request that contains all of the information used to create the user.
-   * @return ClientResponse When successful, the response will contain the user object. If there was a validation error or any other
-   * type of error, this will return the Errors object in the response. Additionally, if Passport could not be contacted
-   * because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the user object. If there was a validation error
+   *     or any other type of error, this will return the Errors object in the response. Additionally, if Passport
+   *     could not be contacted because it is down or experiencing a failure, the response will contain an Exception,
+   *     which could be an IOException.
    */
   public function createUser($userId, $userRequest)
   {
@@ -247,12 +264,14 @@ Class PassportClient
    * Creates a user action. This action cannot be taken on a user until this call successfully returns. Anytime after
    * that the user action can be applied to any user.
    *
-   * @param string $userActionId (Optional) The id for the user action.
-   * @param string $userActionRequest The user action request that contains all of the information used to create the user action.
-   * @return ClientResponse When successful, the response will contain the user action object. If there was a validation error or any
-   * other type of error, this will return the Errors object in the response. Additionally, if Passport could not be
-   * contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   * @param string $userActionId      (Optional) The id for the user action.
+   * @param string $userActionRequest The user action request that contains all of the information used to create the
+   *                                  user action.
+   *
+   * @return ClientResponse When successful, the response will contain the user action object. If there was a
+   *     validation error or any other type of error, this will return the Errors object in the response. Additionally,
+   *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function createUserAction($userActionId, $userActionRequest)
   {
@@ -266,13 +285,15 @@ Class PassportClient
   /**
    * Creates a user reason. This user action reason cannot be used when actioning a user until this call completes
    * successfully. Anytime after that the user action reason can be used.
-   * @param string $userActionReasonId (optional)
-   * @param string $userActionReasonRequest The user action reason request that contains all of the information used to create the user action
-   *                reason.
-   * @return ClientResponse When successful, the response will contain the user action reason object. If there was a validation error
-   * or any other type of error, this will return the Errors object in the response. Additionally, if Passport could not
-   * be contacted because it is down or experiencing a failure, the response will contain an Exception, which could be
-   * an IOException.
+   *
+   * @param string $userActionReasonId      (optional)
+   * @param string $userActionReasonRequest The user action reason request that contains all of the information used to
+   *                                        create the user action reason.
+   *
+   * @return ClientResponse When successful, the response will contain the user action reason object. If there was a
+   *     validation error or any other type of error, this will return the Errors object in the response. Additionally,
+   *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function createUserActionReason($userActionReasonId, $userActionReasonRequest)
   {
@@ -287,10 +308,11 @@ Class PassportClient
    * Deactivates the application with the given id.
    *
    * @param string $applicationId The id of the application to deactivate.
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the status. If there was
-   * a validation error or any other type of error, this will return the Errors object in the response. Additionally, if
-   * Passport could not be contacted because it is down or experiencing a failure, the response will contain an
-   * Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object but only contains the
+   *     status. If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
   public function deactivateApplication($applicationId)
   {
@@ -304,10 +326,11 @@ Class PassportClient
    * Deactivates the user with the given id.
    *
    * @param string $userId The id of the application to deactivate.
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the status. If there was
-   * a validation error or any other type of error, this will return the Errors object in the response. Additionally, if
-   * Passport could not be contacted because it is down or experiencing a failure, the response will contain an
-   * Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object but only contains the
+   *     status. If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
   public function deactivateUser($userId)
   {
@@ -321,10 +344,11 @@ Class PassportClient
    * Deactivates the user action with the given id.
    *
    * @param string $userActionId The id of the user action to deactivate.
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the status. If there was
-   * a validation error or any other type of error, this will return the Errors object in the response. Additionally, if
-   * Passport could not be contacted because it is down or experiencing a failure, the response will contain an
-   * Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object but only contains the
+   *     status. If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
   public function deactivateUserAction($userActionId)
   {
@@ -341,10 +365,11 @@ Class PassportClient
    * long time, depending on the amount of data in your database.
    *
    * @param string $applicationId The id of the application to delete.
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the status. If there was
-   * a validation error or any other type of error, this will return the Errors object in the response. Additionally, if
-   * Passport could not be contacted because it is down or experiencing a failure, the response will contain an
-   * Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object but only contains the
+   *     status. If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
   public function deleteApplication($applicationId)
   {
@@ -360,11 +385,12 @@ Class PassportClient
    * permanently removes the given role from all users that had it.
    *
    * @param string $applicationId The id of the application that contains the role.
-   * @param string $roleId The id of the role to delete.
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the status. If there was
-   * a validation error or any other type of error, this will return the Errors object in the response. Additionally, if
-   * Passport could not be contacted because it is down or experiencing a failure, the response will contain an
-   * Exception, which could be an IOException.
+   * @param string $roleId        The id of the role to delete.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object but only contains the
+   *     status. If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
   public function deleteApplicationRole($applicationId, $roleId)
   {
@@ -380,10 +406,11 @@ Class PassportClient
    * Deletes the email template for the given id.
    *
    * @param string $emailTemplateId The id of the email template to delete.
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the status. If there was
-   * a validation error or any other type of error, this will return the Errors object in the response. Additionally, if
-   * Passport could not be contacted because it is down or experiencing a failure, the response will contain an
-   * Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object but only contains the
+   *     status. If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
   public function deleteEmailTemplate($emailTemplateId)
   {
@@ -397,10 +424,11 @@ Class PassportClient
    * Deletes the notification server for the given id.
    *
    * @param string $notificationServerId The id of the notification server to delete.
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the status. If there was
-   * a validation error or any other type of error, this will return the Errors object in the response. Additionally, if
-   * Passport could not be contacted because it is down or experiencing a failure, the response will contain an
-   * Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object but only contains the
+   *     status. If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
   public function deleteNotificationServer($notificationServerId)
   {
@@ -413,12 +441,13 @@ Class PassportClient
   /**
    * Deletes the user registration for the given user and application.
    *
-   * @param string $userId The id of the user whose registration is being deleted.
+   * @param string $userId        The id of the user whose registration is being deleted.
    * @param string $applicationId The id of the application to remove the registration for.
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the status. If there was
-   * a validation error or any other type of error, this will return the Errors object in the response. Additionally, if
-   * Passport could not be contacted because it is down or experiencing a failure, the response will contain an
-   * Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object but only contains the
+   *     status. If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
   public function deleteRegistration($userId, $applicationId)
   {
@@ -434,10 +463,11 @@ Class PassportClient
    * with the user.
    *
    * @param string $userId The id of the user to delete.
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the status. If there was
-   * a validation error or any other type of error, this will return the Errors object in the response. Additionally, if
-   * Passport could not be contacted because it is down or experiencing a failure, the response will contain an
-   * Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object but only contains the
+   *     status. If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
   public function deleteUser($userId)
   {
@@ -449,14 +479,16 @@ Class PassportClient
   }
 
   /**
-   * Deletes the user action for the given id. This permanently deletes the user action and also any history and logs of
+   * Deletes the user action for the given id. This permanently deletes the user action and also any history and logs
+   * of
    * the action being applied to any users.
    *
    * @param string $userActionId The id of the user action to delete.
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the status. If there was
-   * a validation error or any other type of error, this will return the Errors object in the response. Additionally, if
-   * Passport could not be contacted because it is down or experiencing a failure, the response will contain an
-   * Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object but only contains the
+   *     status. If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
   public function deleteUserAction($userActionId)
   {
@@ -471,10 +503,11 @@ Class PassportClient
    * Deletes the user action reason for the given id.
    *
    * @param string $userActionReasonId The id of the user action reason to delete.
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the status. If there was
-   * a validation error or any other type of error, this will return the Errors object in the response. Additionally, if
-   * Passport could not be contacted because it is down or experiencing a failure, the response will contain an
-   * Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object but only contains the
+   *     status. If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
   public function deleteUserActionReason($userActionReasonId)
   {
@@ -487,11 +520,13 @@ Class PassportClient
   /**
    * Begins the forgot password sequence, which kicks off an email to the user so that they can reset their password.
    *
-   * @param string $forgotPasswordRequest The request that contains the information about the user so that they can be emailed.
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the status. If there was
-   * a validation error or any other type of error, this will return the Errors object in the response. Additionally, if
-   * Passport could not be contacted because it is down or experiencing a failure, the response will contain an
-   * Exception, which could be an IOException.
+   * @param string $forgotPasswordRequest The request that contains the information about the user so that they can be
+   *                                      emailed.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object but only contains the
+   *     status. If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
   public function forgotPassword($forgotPasswordRequest)
   {
@@ -507,10 +542,11 @@ Class PassportClient
    * but it will likely be pretty generic.
    *
    * @param string $importRequest The request that contains all of the information about all of the users to import.
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the status. If there was
-   * a validation error or any other type of error, this will return the Errors object in the response. Additionally, if
-   * Passport could not be contacted because it is down or experiencing a failure, the response will contain an
-   * Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object but only contains the
+   *     status. If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
   public function importUsers($importRequest)
   {
@@ -524,11 +560,15 @@ Class PassportClient
    * Logs a user in.
    *
    * @param string $loginRequest    The login request that contains the user credentials used to log them in.
-   * @param string $callerIPAddress The IP address of the end-user that is logging in.
-   * @return ClientResponse When successful, the response will contain the user that was logged in. This user object is complete and
-   * contains all of the registrations and data for the user. If there was a validation error or any other type of
-   * error, this will return the Errors object in the response. Additionally, if Passport could not be contacted because
-   * it is down or experiencing a failure, the response will contain an Exception, which could be an IOException.
+   * @param string $callerIPAddress (Optional) The IP address of the end-user that is logging in. If a null value is
+   *                                provided the IP address will be that of the client or last proxy that sent the
+   *                                request.
+   *
+   * @return ClientResponse When successful, the response will contain the user that was logged in. This user object is
+   *     complete and contains all of the registrations and data for the user. If there was a validation error or any
+   *     other type of error, this will return the Errors object in the response. Additionally, if Passport could not
+   *     be contacted because it is down or experiencing a failure, the response will contain an Exception, which could
+   *     be an IOException.
    */
   public function login($loginRequest, $callerIPAddress)
   {
@@ -545,16 +585,23 @@ Class PassportClient
    * application where they no longer have a session. This helps correctly track login counts, times and helps with
    * reporting.
    *
-   * @param string $userId The id of the user that was logged in.
-   * @param string $applicationId The id of the application that they logged into.
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the status. If there was
-   * a validation error or any other type of error, this will return the Errors object in the response. Additionally, if
-   * Passport could not be contacted because it is down or experiencing a failure, the response will contain an
-   * Exception, which could be an IOException.
+   * @param string $userId           The id of the user that was logged in.
+   * @param string $applicationId    The id of the application that they logged into.
+   * @param string $callerIPAddress  (Optional) The IP address of the end-user that is logging in. If a null value is
+   *                                 provided the IP address will be that of the client or last proxy that sent the
+   *                                 request.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object but only contains the
+   *     status. If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
-  public function loginPing($userId, $applicationId)
+  public function loginPing($userId, $applicationId, $callerIPAddress)
   {
-    return $this->start()->uri("/api/login/" . $userId . "/" . $applicationId)
+    return $this->start()->uri("/api/login")
+        ->urlSegment($userId)
+        ->urlSegment($applicationId)
+        ->header("X-Forwarded-For", $callerIPAddress)
         ->put()
         ->go();
   }
@@ -563,12 +610,13 @@ Class PassportClient
    * Modifies a temporal user action by changing the expiration of the action and optionally adding a comment to the
    * action.
    *
-   * @param string $actionId The id of the action to modify. This is technically the user action log id.
+   * @param string $actionId      The id of the action to modify. This is technically the user action log id.
    * @param string $actionRequest The request that contains all of the information about the modification.
-   * @return ClientResponse When successful, the response will contain the a notification of the action. If there was a validation
-   * error or any other type of error, this will return the Errors object in the response. Additionally, if Passport
-   * could not be contacted because it is down or experiencing a failure, the response will contain an Exception, which
-   * could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the a notification of the action. If there was a
+   *     validation error or any other type of error, this will return the Errors object in the response. Additionally,
+   *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function modifyAction($actionId, $actionRequest)
   {
@@ -583,10 +631,11 @@ Class PassportClient
    * Reactivates the application for the given id.
    *
    * @param string $applicationId The id of the application to reactivate.
-   * @return ClientResponse When successful, the response will contain the application that was reactivated. If there was a validation
-   * error or any other type of error, this will return the Errors object in the response. Additionally, if Passport
-   * could not be contacted because it is down or experiencing a failure, the response will contain an Exception, which
-   * could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the application that was reactivated. If there
+   *     was a validation error or any other type of error, this will return the Errors object in the response.
+   *     Additionally, if Passport could not be contacted because it is down or experiencing a failure, the response
+   *     will contain an Exception, which could be an IOException.
    */
   public function reactivateApplication($applicationId)
   {
@@ -601,10 +650,11 @@ Class PassportClient
    * Reactivates the user action for the given id.
    *
    * @param string $userId The id of the user action to reactivate.
-   * @return ClientResponse When successful, the response will contain the user that was reactivated. If there was a validation error
-   * or any other type of error, this will return the Errors object in the response. Additionally, if Passport could not
-   * be contacted because it is down or experiencing a failure, the response will contain an Exception, which could be
-   * an IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the user that was reactivated. If there was a
+   *     validation error or any other type of error, this will return the Errors object in the response. Additionally,
+   *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function reactivateUser($userId)
   {
@@ -619,10 +669,11 @@ Class PassportClient
    * Reactivates the user action for the given id.
    *
    * @param string $userActionId The id of the user action to reactivate.
-   * @return ClientResponse When successful, the response will contain the user action that was reactivated. If there was a validation
-   * error or any other type of error, this will return the Errors object in the response. Additionally, if Passport
-   * could not be contacted because it is down or experiencing a failure, the response will contain an Exception, which
-   * could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the user action that was reactivated. If there
+   *     was a validation error or any other type of error, this will return the Errors object in the response.
+   *     Additionally, if Passport could not be contacted because it is down or experiencing a failure, the response
+   *     will contain an Exception, which could be an IOException.
    */
   public function reactivateUserAction($userActionId)
   {
@@ -640,12 +691,15 @@ Class PassportClient
    * application. The user id can also be provided and it will either be used to look up an existing user or it will be
    * used for the newly created User.
    *
-   * @param string $userId (optional) The id of the user being registered for the application and optionally created.
-   * @param string $registrationRequest The request that optionally contains the User and must contain the UserRegistration.
-   * @return ClientResponse When successful, the response will contain the UserRegistration and optionally will contain the User if the
-   * request as a Full Registration. If there was a validation error or any other type of error, this will return the
-   * Errors object in the response. Additionally, if Passport could not be contacted because it is down or experiencing
-   * a failure, the response will contain an Exception, which could be an IOException.
+   * @param string $userId              (optional) The id of the user being registered for the application and
+   *                                    optionally created.
+   * @param string $registrationRequest The request that optionally contains the User and must contain the
+   *                                    UserRegistration.
+   *
+   * @return ClientResponse When successful, the response will contain the UserRegistration and optionally will contain
+   *     the User if the request as a Full Registration. If there was a validation error or any other type of error,
+   *     this will return the Errors object in the response. Additionally, if Passport could not be contacted because
+   *     it is down or experiencing a failure, the response will contain an Exception, which could be an IOException.
    */
   public function register($userId, $registrationRequest)
   {
@@ -660,9 +714,11 @@ Class PassportClient
    * Re-sends the verification email to the user.
    *
    * @param string $email The email address of the user that needs a new verification email.
-   * @return ClientResponse When successful, the response will not contain a response object, it will only contain the status. There
-   * are also no errors associated with this request. Additionally, if Passport could not be contacted because it is
-   * down or experiencing a failure, the response will contain an Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object, it will only contain the
+   *     status. There are also no errors associated with this request. Additionally, if Passport could not be
+   *     contacted because it is down or experiencing a failure, the response will contain an Exception, which could be
+   *     an IOException.
    */
   public function resendEmailVerification($email)
   {
@@ -676,10 +732,11 @@ Class PassportClient
    * Retrieves a single action for the given id.
    *
    * @param string $actionId The id of the action to retrieve.
-   * @return ClientResponse When successful, the response will contain the the action that was previously taken on a user. If there was
-   * a validation error or any other type of error, this will return the Errors object in the response. Additionally, if
-   * Passport could not be contacted because it is down or experiencing a failure, the response will contain an
-   * Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the the action that was previously taken on a
+   *     user. If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
   public function retrieveAction($actionId)
   {
@@ -693,14 +750,16 @@ Class PassportClient
    * Retrieves all of the actions for the user with the given id.
    *
    * @param string $userId The id of the user to fetch the actions for.
-   * @return ClientResponse When successful, the response will contain all of the user action notifications for the given use. If there
-   * was a validation error or any other type of error, this will return the Errors object in the response.
-   * Additionally, if Passport could not be contacted because it is down or experiencing a failure, the response will
-   * contain an Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will contain all of the user action notifications for the
+   *     given use. If there was a validation error or any other type of error, this will return the Errors object in
+   *     the response. Additionally, if Passport could not be contacted because it is down or experiencing a failure,
+   *     the response will contain an Exception, which could be an IOException.
    */
   public function retrieveActions($userId)
   {
-    return $this->start()->uri("/api/user/action?$userId=" . $userId)
+    return $this->start()->uri("/api/user/action")
+        ->urlParameter("userId", $userId)
         ->get()
         ->go();
   }
@@ -709,9 +768,10 @@ Class PassportClient
    * Retrieves the application for the given id or all of the applications if the id is null.
    *
    * @param string $applicationId (Optional) The application id.
-   * @return ClientResponse When successful, the response will contain the application or applications. There are no errors associated
-   * with this request. Additionally, if Passport could not be contacted because it is down or experiencing a failure,
-   * the response will contain an Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the application or applications. There are no
+   *     errors associated with this request. Additionally, if Passport could not be contacted because it is down or
+   *     experiencing a failure, the response will contain an Exception, which could be an IOException.
    */
   public function retrieveApplication($applicationId)
   {
@@ -726,9 +786,10 @@ Class PassportClient
    * Retrieves the daily active user report between the two instants. If you specify an application id, it will only
    * return the daily active counts for that application.
    *
-   * @param string $applicationId (Optional) The application id.
-   * @param integer $start The start instant as UTC milliseconds since Epoch.
-   * @param integer $end The end instant as UTC milliseconds since Epoch.
+   * @param string  $applicationId (Optional) The application id.
+   * @param integer $start         The start instant as UTC milliseconds since Epoch.
+   * @param integer $end           The end instant as UTC milliseconds since Epoch.
+   *
    * @return ClientResponse When successful, the response will contain the daily active user counts between the start().
    * If there was a validation error or any other type of error, this will return the Errors object in the response.
    * Additionally, if Passport could not be contacted because it is down or experiencing a failure, the response will
@@ -749,9 +810,11 @@ Class PassportClient
    * templates.
    *
    * @param string $emailTemplateId The id of the email template.
-   * @return ClientResponse When successful, the response will contain the email template of the id or all the email templates. There
-   * are no errors associated with this request. Additionally, if Passport could not be contacted because it is down or
-   * experiencing a failure, the response will contain an Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the email template of the id or all the email
+   *     templates. There are no errors associated with this request. Additionally, if Passport could not be contacted
+   *     because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   *     IOException.
    */
   public function retrieveEmailTemplate($emailTemplateId)
   {
@@ -766,11 +829,13 @@ Class PassportClient
    * hasn't been saved to the database yet. The entire email template does not need to be provided on the request. This
    * will create the preview based on whatever is given.
    *
-   * @param string $previewRequest The request that contains the email template and optionally a locale to render it in.
-   * @return ClientResponse When successful, the response will contain the preview of the email template. If the template was invalid
-   * or could not be rendered because of template errors, those will be returned in the Errors object in the response.
-   * Additionally, if Passport could not be contacted because it is down or experiencing a failure, the response will
-   * contain an Exception, which could be an IOException.
+   * @param string $previewRequest The request that contains the email template and optionally a locale to render it
+   *                               in.
+   *
+   * @return ClientResponse When successful, the response will contain the preview of the email template. If the
+   *     template was invalid or could not be rendered because of template errors, those will be returned in the Errors
+   *     object in the response. Additionally, if Passport could not be contacted because it is down or experiencing a
+   *     failure, the response will contain an Exception, which could be an IOException.
    */
   public function retrieveEmailTemplatePreview($previewRequest)
   {
@@ -783,9 +848,9 @@ Class PassportClient
   /**
    * Retrieves all of the applications that are currently inactive.
    *
-   * @return ClientResponse When successful, the response will contain all of the inactive applications. There are no errors associated
-   * with this request. Additionally, if Passport could not be contacted because it is down or experiencing a failure,
-   * the response will contain an Exception, which could be an IOException.
+   * @return ClientResponse When successful, the response will contain all of the inactive applications. There are no
+   *     errors associated with this request. Additionally, if Passport could not be contacted because it is down or
+   *     experiencing a failure, the response will contain an Exception, which could be an IOException.
    */
   public function retrieveInactiveApplications()
   {
@@ -798,9 +863,9 @@ Class PassportClient
   /**
    * Retrieves all of the user actions that are currently inactive.
    *
-   * @return ClientResponse When successful, the response will contain all of the inactive user actions. There are no errors associated
-   * with this request. Additionally, if Passport could not be contacted because it is down or experiencing a failure,
-   * the response will contain an Exception, which could be an IOException.
+   * @return ClientResponse When successful, the response will contain all of the inactive user actions. There are no
+   *     errors associated with this request. Additionally, if Passport could not be contacted because it is down or
+   *     experiencing a failure, the response will contain an Exception, which could be an IOException.
    */
   public function retrieveInactiveUserActions()
   {
@@ -814,9 +879,10 @@ Class PassportClient
    * Retrieves the login report between the two instants. If you specify an application id, it will only return the
    * login counts for that application.
    *
-   * @param string $applicationId (Optional) The application id.
-   * @param integer $start The start instant as UTC milliseconds since Epoch.
-   * @param integer $end The end instant as UTC milliseconds since Epoch.
+   * @param string  $applicationId (Optional) The application id.
+   * @param integer $start         The start instant as UTC milliseconds since Epoch.
+   * @param integer $end           The end instant as UTC milliseconds since Epoch.
+   *
    * @return ClientResponse When successful, the response will contain the login counts between the start(). If there
    * was a validation error or any other type of error, this will return the Errors object in the response.
    * Additionally, if Passport could not be contacted because it is down or experiencing a failure, the response will
@@ -836,13 +902,14 @@ Class PassportClient
    * Retrieves the monthly active user report between the two instants. If you specify an application id, it will only
    * return the monthly active counts for that application.
    *
-   * @param string $applicationId (Optional) The application id.
-   * @param integer $start The start instant as UTC milliseconds since Epoch.
-   * @param integer $end The end instant as UTC milliseconds since Epoch.
-   * @return ClientResponse When successful, the response will contain the monthly active user counts between the start and end
-   * instants. If there was a validation error or any other type of error, this will return the Errors object in the
-   * response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
-   * response will contain an Exception, which could be an IOException.
+   * @param string  $applicationId (Optional) The application id.
+   * @param integer $start         The start instant as UTC milliseconds since Epoch.
+   * @param integer $end           The end instant as UTC milliseconds since Epoch.
+   *
+   * @return ClientResponse When successful, the response will contain the monthly active user counts between the start
+   *     and end instants. If there was a validation error or any other type of error, this will return the Errors
+   *     object in the response. Additionally, if Passport could not be contacted because it is down or experiencing a
+   *     failure, the response will contain an Exception, which could be an IOException.
    */
   public function retrieveMonthlyActiveReport($applicationId, $start, $end)
   {
@@ -859,9 +926,11 @@ Class PassportClient
    * notification servers.
    *
    * @param string $notificationServerId (Optional) The id of the notification server.
-   * @return ClientResponse When successful, the response will contain the notification server for the id or all the notification
-   * servers. There are no errors associated with this request. Additionally, if Passport could not be contacted because
-   * it is down or experiencing a failure, the response will contain an Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the notification server for the id or all the
+   *     notification servers. There are no errors associated with this request. Additionally, if Passport could not be
+   *     contacted because it is down or experiencing a failure, the response will contain an Exception, which could be
+   *     an IOException.
    */
   public function retrieveNotificationServer($notificationServerId)
   {
@@ -874,12 +943,13 @@ Class PassportClient
   /**
    * Retrieves the user registration for the user with the given id and the given application id.
    *
-   * @param string $userId The id of the user.
+   * @param string $userId        The id of the user.
    * @param string $applicationId The id of the application.
-   * @return ClientResponse When successful, the response will contain the user registration object. If there was a validation error or
-   * any other type of error, this will return the Errors object in the response. Additionally, if Passport could not be
-   * contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the user registration object. If there was a
+   *     validation error or any other type of error, this will return the Errors object in the response. Additionally,
+   *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function retrieveRegistration($userId, $applicationId)
   {
@@ -894,9 +964,10 @@ Class PassportClient
    * Retrieves the registration report between the two instants. If you specify an application id, it will only return
    * the login counts for that application.
    *
-   * @param string $applicationId (Optional) The application id.
-   * @param integer $start The start instant as UTC milliseconds since Epoch.
-   * @param integer $end The end instant as UTC milliseconds since Epoch.
+   * @param string  $applicationId (Optional) The application id.
+   * @param integer $start         The start instant as UTC milliseconds since Epoch.
+   * @param integer $end           The end instant as UTC milliseconds since Epoch.
+   *
    * @return ClientResponse When successful, the response will contain the registration counts between the start(). If
    * there was a validation error or any other type of error, this will return the Errors object in the response.
    * Additionally, if Passport could not be contacted because it is down or experiencing a failure, the response will
@@ -915,9 +986,9 @@ Class PassportClient
   /**
    * Retrieves the system configuration.
    *
-   * @return ClientResponse When successful, the response will contain the system configuration. There are no errors associated with
-   * this request. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
-   * response will contain an Exception, which could be an IOException.
+   * @return ClientResponse When successful, the response will contain the system configuration. There are no errors
+   *     associated with this request. Additionally, if Passport could not be contacted because it is down or
+   *     experiencing a failure, the response will contain an Exception, which could be an IOException.
    */
   public function retrieveSystemConfiguration()
   {
@@ -927,13 +998,15 @@ Class PassportClient
   }
 
   /**
-   * Retrieves the totals report. This contains all of the total counts for each application and the global registration
+   * Retrieves the totals report. This contains all of the total counts for each application and the global
+   * registration
    * count.
    *
-   * @return ClientResponse When successful, the response will contain the total counts for logins and registrations for each
-   * application as well as the global registration count. If there was a validation error or any other type of error,
-   * this will return the Errors object in the response. Additionally, if Passport could not be contacted because it is
-   * down or experiencing a failure, the response will contain an Exception, which could be an IOException.
+   * @return ClientResponse When successful, the response will contain the total counts for logins and registrations
+   *     for each application as well as the global registration count. If there was a validation error or any other
+   *     type of error, this will return the Errors object in the response. Additionally, if Passport could not be
+   *     contacted because it is down or experiencing a failure, the response will contain an Exception, which could be
+   *     an IOException.
    */
   public function retrieveTotalReport()
   {
@@ -946,10 +1019,11 @@ Class PassportClient
    * Retrieves the user for the given id.
    *
    * @param string $userId The id of the user.
-   * @return ClientResponse When successful, the response will contain the user object. If there was a validation error or any other
-   * type of error, this will return the Errors object in the response. Additionally, if Passport could not be contacted
-   * because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the user object. If there was a validation error
+   *     or any other type of error, this will return the Errors object in the response. Additionally, if Passport
+   *     could not be contacted because it is down or experiencing a failure, the response will contain an Exception,
+   *     which could be an IOException.
    */
   public function retrieveUser($userId)
   {
@@ -964,9 +1038,11 @@ Class PassportClient
    * actions.
    *
    * @param string $userActionId (Optional) The id of the user action.
-   * @return ClientResponse When successful, the response will contain the user action or all the user actions if null is passed in.
-   * There are no errors associated with this request. Additionally, if Passport could not be contacted because it is
-   * down or experiencing a failure, the response will contain an Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the user action or all the user actions if null
+   *     is passed in. There are no errors associated with this request. Additionally, if Passport could not be
+   *     contacted because it is down or experiencing a failure, the response will contain an Exception, which could be
+   *     an IOException.
    */
   public function retrieveUserAction($userActionId)
   {
@@ -977,14 +1053,16 @@ Class PassportClient
   }
 
   /**
-   * Retrieves the user action reason for the given id. If you pass in null for the id, this will return all of the user
+   * Retrieves the user action reason for the given id. If you pass in null for the id, this will return all of the
+   * user
    * action reasons.
    *
    * @param string $userActionReasonId (Optional) The id of the user action.
-   * @return ClientResponse When successful, the response will contain the user action reason or all the user action reasons if null is
-   * passed in. There are no errors associated with this request. Additionally, if Passport could not be contacted
-   * because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the user action reason or all the user action
+   *     reasons if null is passed in. There are no errors associated with this request. Additionally, if Passport
+   *     could not be contacted because it is down or experiencing a failure, the response will contain an Exception,
+   *     which could be an IOException.
    */
   public function retrieveUserActionReason($userActionReasonId)
   {
@@ -998,10 +1076,11 @@ Class PassportClient
    * Retrieves the user for the given email.
    *
    * @param string $email The email of the user.
-   * @return ClientResponse When successful, the response will contain the user object. If there was a validation error or any other
-   * type of error, this will return the Errors object in the response. Additionally, if Passport could not be contacted
-   * because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the user object. If there was a validation error
+   *     or any other type of error, this will return the Errors object in the response. Additionally, if Passport
+   *     could not be contacted because it is down or experiencing a failure, the response will contain an Exception,
+   *     which could be an IOException.
    */
   public function retrieveUserByEmail($email)
   {
@@ -1015,10 +1094,11 @@ Class PassportClient
    * Retrieves the user for the given username.
    *
    * @param string $username The username of the user.
-   * @return ClientResponse When successful, the response will contain the user object. If there was a validation error or any other
-   * type of error, this will return the Errors object in the response. Additionally, if Passport could not be contacted
-   * because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the user object. If there was a validation error
+   *     or any other type of error, this will return the Errors object in the response. Additionally, if Passport
+   *     could not be contacted because it is down or experiencing a failure, the response will contain an Exception,
+   *     which could be an IOException.
    */
   public function retrieveUserByUsername($username)
   {
@@ -1032,10 +1112,11 @@ Class PassportClient
    * Retrieves all of the comments for the user with the given id.
    *
    * @param string $userId The id of the user.
-   * @return ClientResponse When successful, the response will contain the comments. If there was a validation error or any other type
-   * of error, this will return the Errors object in the response. Additionally, if Passport could not be contacted
-   * because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the comments. If there was a validation error or
+   *     any other type of error, this will return the Errors object in the response. Additionally, if Passport could
+   *     not be contacted because it is down or experiencing a failure, the response will contain an Exception, which
+   *     could be an IOException.
    */
   public function retrieveUserComments($userId)
   {
@@ -1049,13 +1130,14 @@ Class PassportClient
    * Retrieves the login report between the two instants. If you specify an application id, it will only return the
    * login counts for that application.
    *
-   * @param string $userId The user's id.
+   * @param string  $userId The user's id.
    * @param integer $offset The initial record. e.g. 0 is the last login, 100 will be the 100th most recent login.
-   * @param integer $limit (Optional, defaults to 10) The number of records to retrieve.
-   * @return ClientResponse When successful, the response will contain RawLogin records. If there was a validation error or any other
-   * type of error, this will return the Errors object in the response. Additionally, if Passport could not be contacted
-   * because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   * @param integer $limit  (Optional, defaults to 10) The number of records to retrieve.
+   *
+   * @return ClientResponse When successful, the response will contain RawLogin records. If there was a validation
+   *     error or any other type of error, this will return the Errors object in the response. Additionally, if
+   *     Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function retrieveUserLoginReport($userId, $offset, $limit)
   {
@@ -1071,10 +1153,11 @@ Class PassportClient
    * Searches the audit logs with the specified criteria and pagination.
    *
    * @param string $search The search criteria and pagination information.
-   * @return ClientResponse When successful, the response will contain the audit logs that match the criteria and pagination
-   * constraints. There are no errors associated with this request. Additionally, if Passport could not be contacted
-   * because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the audit logs that match the criteria and
+   *     pagination constraints. There are no errors associated with this request. Additionally, if Passport could not
+   *     be contacted because it is down or experiencing a failure, the response will contain an Exception, which could
+   *     be an IOException.
    */
   public function searchAuditLogs($search)
   {
@@ -1094,10 +1177,11 @@ Class PassportClient
    * Retrieves the users for the given ids. If any id is invalid, it is ignored.
    *
    * @param string $ids The user ids to search for.
-   * @return ClientResponse When successful, the response will contain the users that match the ids. If there was a validation error or
-   * any other type of error, this will return the Errors object in the response. Additionally, if Passport could not be
-   * contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the users that match the ids. If there was a
+   *     validation error or any other type of error, this will return the Errors object in the response. Additionally,
+   *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function searchUsers($ids)
   {
@@ -1110,12 +1194,13 @@ Class PassportClient
   /**
    * Retrieves the users for the given search criteria and pagination.
    *
-   * @param string $search The search criteria and pagination constraints. Fields used: queryString, numberOfResults, and
-   *               startRow
-   * @return ClientResponse When successful, the response will contain the users that match the search criteria and pagination
-   * constraints. If there was a validation error or any other type of error, this will return the Errors object in the
-   * response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
-   * response will contain an Exception, which could be an IOException.
+   * @param string $search The search criteria and pagination constraints. Fields used: queryString, numberOfResults,
+   *                       and startRow
+   *
+   * @return ClientResponse When successful, the response will contain the users that match the search criteria and
+   *     pagination constraints. If there was a validation error or any other type of error, this will return the
+   *     Errors object in the response. Additionally, if Passport could not be contacted because it is down or
+   *     experiencing a failure, the response will contain an Exception, which could be an IOException.
    */
   public function searchUsersByQueryString($search)
   {
@@ -1132,11 +1217,12 @@ Class PassportClient
    * pairs in the email template.
    *
    * @param string $emailTemplateId The id for the template.
-   * @param string $sendRequest The send email request that contains all of the information used to send the email.
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the status. If there was
-   * a validation error or any other type of error, this will return the Errors object in the response. Additionally, if
-   * Passport could not be contacted because it is down or experiencing a failure, the response will contain an
-   * Exception, which could be an IOException.
+   * @param string $sendRequest     The send email request that contains all of the information used to send the email.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object but only contains the
+   *     status. If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
   public function sendEmail($emailTemplateId, $sendRequest)
   {
@@ -1150,12 +1236,13 @@ Class PassportClient
   /**
    * Updates the application with the given id.
    *
-   * @param string $applicationId The id of the application to update.
+   * @param string $applicationId      The id of the application to update.
    * @param string $applicationRequest The request that contains all of the new application information.
-   * @return ClientResponse When successful, the response will contain the application. If there was a validation error or any other
-   * type of error, this will return the Errors object in the response. Additionally, if Passport could not be contacted
-   * because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the application. If there was a validation error
+   *     or any other type of error, this will return the Errors object in the response. Additionally, if Passport
+   *     could not be contacted because it is down or experiencing a failure, the response will contain an Exception,
+   *     which could be an IOException.
    */
   public function updateApplication($applicationId, $applicationRequest)
   {
@@ -1169,12 +1256,14 @@ Class PassportClient
   /**
    * Updates the application role with the given id for the application.
    *
-   * @param string $applicationId The id of the application that the role belongs to.
-   * @param string $roleId The id of the role to update.
+   * @param string $applicationId      The id of the application that the role belongs to.
+   * @param string $roleId             The id of the role to update.
    * @param string $applicationRequest The request that contains all of the new role information.
-   * @return ClientResponse When successful, the response will contain the role. If there was a validation error or any other type of
-   * error, this will return the Errors object in the response. Additionally, if Passport could not be contacted because
-   * it is down or experiencing a failure, the response will contain an Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the role. If there was a validation error or any
+   *     other type of error, this will return the Errors object in the response. Additionally, if Passport could not
+   *     be contacted because it is down or experiencing a failure, the response will contain an Exception, which could
+   *     be an IOException.
    */
   public function updateApplicationRole($applicationId, $roleId, $applicationRequest)
   {
@@ -1190,12 +1279,13 @@ Class PassportClient
   /**
    * Updates the email template with the given id.
    *
-   * @param string $emailTemplateId The id of the email template to update.
+   * @param string $emailTemplateId      The id of the email template to update.
    * @param string $emailTemplateRequest The request that contains all of the new email template information.
-   * @return ClientResponse When successful, the response will contain the email template. If there was a validation error or any other
-   * type of error, this will return the Errors object in the response. Additionally, if Passport could not be contacted
-   * because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the email template. If there was a validation
+   *     error or any other type of error, this will return the Errors object in the response. Additionally, if
+   *     Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function updateEmailTemplate($emailTemplateId, $emailTemplateRequest)
   {
@@ -1209,12 +1299,13 @@ Class PassportClient
   /**
    * Updates the notification server with the given id.
    *
-   * @param string $notificationServerId The id of the notification server to update.
+   * @param string $notificationServerId      The id of the notification server to update.
    * @param string $notificationServerRequest The request that contains all of the new notification server information.
-   * @return ClientResponse When successful, the response will contain the notification server. If there was a validation error or any
-   * other type of error, this will return the Errors object in the response. Additionally, if Passport could not be
-   * contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the notification server. If there was a
+   *     validation error or any other type of error, this will return the Errors object in the response. Additionally,
+   *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function updateNotificationServer($notificationServerId, $notificationServerRequest)
   {
@@ -1228,12 +1319,13 @@ Class PassportClient
   /**
    * Updates the registration for the user with the given id and the application defined in the request.
    *
-   * @param string $userId The id of the user whose registration is going to be updated.
+   * @param string $userId              The id of the user whose registration is going to be updated.
    * @param string $registrationRequest The request that contains all of the new registration information.
-   * @return ClientResponse When successful, the response will contain the registration. If there was a validation error or any other
-   * type of error, this will return the Errors object in the response. Additionally, if Passport could not be contacted
-   * because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the registration. If there was a validation
+   *     error or any other type of error, this will return the Errors object in the response. Additionally, if
+   *     Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function updateRegistration($userId, $registrationRequest)
   {
@@ -1247,11 +1339,13 @@ Class PassportClient
   /**
    * Updates the system configuration.
    *
-   * @param string $systemConfigurationRequest The request that contains all of the new system configuration information.
-   * @return ClientResponse When successful, the response will contain the system configuration. If there was a validation error or any
-   * other type of error, this will return the Errors object in the response. Additionally, if Passport could not be
-   * contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   * @param string $systemConfigurationRequest The request that contains all of the new system configuration
+   *                                           information.
+   *
+   * @return ClientResponse When successful, the response will contain the system configuration. If there was a
+   *     validation error or any other type of error, this will return the Errors object in the response. Additionally,
+   *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function updateSystemConfiguration($systemConfigurationRequest)
   {
@@ -1264,11 +1358,13 @@ Class PassportClient
   /**
    * Updates the user with the given id.
    *
-   * @param string $userId The id of the user to update.
+   * @param string $userId  The id of the user to update.
    * @param string $request The request that contains all of the new user information.
-   * @return ClientResponse When successful, the response will contain the user. If there was a validation error or any other type of
-   * error, this will return the Errors object in the response. Additionally, if Passport could not be contacted because
-   * it is down or experiencing a failure, the response will contain an Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will contain the user. If there was a validation error or any
+   *     other type of error, this will return the Errors object in the response. Additionally, if Passport could not
+   *     be contacted because it is down or experiencing a failure, the response will contain an Exception, which could
+   *     be an IOException.
    */
   public function updateUser($userId, $request)
   {
@@ -1283,11 +1379,12 @@ Class PassportClient
    * Updates the user action with the given id.
    *
    * @param string $userActionId The id of the user action to update.
-   * @param string $userRequest The request that contains all of the new user action information.
-   * @return ClientResponse When successful, the response will contain the user action. If there was a validation error or any other
-   * type of error, this will return the Errors object in the response. Additionally, if Passport could not be contacted
-   * because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   * @param string $userRequest  The request that contains all of the new user action information.
+   *
+   * @return ClientResponse When successful, the response will contain the user action. If there was a validation error
+   *     or any other type of error, this will return the Errors object in the response. Additionally, if Passport
+   *     could not be contacted because it is down or experiencing a failure, the response will contain an Exception,
+   *     which could be an IOException.
    */
   public function updateUserAction($userActionId, $userRequest)
   {
@@ -1301,11 +1398,12 @@ Class PassportClient
    * Updates the user action reason with the given id.
    *
    * @param string $userActionReasonId The id of the user action reason to update.
-   * @param string $userActionRequest The request that contains all of the new user action reason information.
-   * @return ClientResponse When successful, the response will contain the user action reason. If there was a validation error or any
-   * other type of error, this will return the Errors object in the response. Additionally, if Passport could not be
-   * contacted because it is down or experiencing a failure, the response will contain an Exception, which could be an
-   * IOException.
+   * @param string $userActionRequest  The request that contains all of the new user action reason information.
+   *
+   * @return ClientResponse When successful, the response will contain the user action reason. If there was a
+   *     validation error or any other type of error, this will return the Errors object in the response. Additionally,
+   *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function updateUserActionReason($userActionReasonId, $userActionRequest)
   {
@@ -1320,9 +1418,11 @@ Class PassportClient
    * Confirms a email verification. The id given is usually from an email sent to the user.
    *
    * @param string $verificationId The verification id sent to the user.
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the status. There are no
-   * errors associated with this request. Additionally, if Passport could not be contacted because it is down or
-   * experiencing a failure, the response will contain an Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object but only contains the
+   *     status. There are no errors associated with this request. Additionally, if Passport could not be contacted
+   *     because it is down or experiencing a failure, the response will contain an Exception, which could be an
+   *     IOException.
    */
   public function verifyEmail($verificationId)
   {
@@ -1336,10 +1436,11 @@ Class PassportClient
    * Confirms a two factor authentication code.
    *
    * @param string $twoFactorRequest The two factor request information.
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the status.  If there
-   * was a validation error or any other type of error, this will return the Errors object in the response.
-   * Additionally, if Passport could not be contacted because it is down or experiencing a failure, the response will
-   * contain an Exception, which could be an IOException.
+   *
+   * @return ClientResponse When successful, the response will not contain a response object but only contains the
+   *     status.  If there was a validation error or any other type of error, this will return the Errors object in the
+   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
+   *     response will contain an Exception, which could be an IOException.
    */
   public function verifyTwoFactor($twoFactorRequest)
   {
