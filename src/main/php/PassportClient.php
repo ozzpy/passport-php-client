@@ -523,10 +523,10 @@ Class PassportClient
    * @param string $forgotPasswordRequest The request that contains the information about the user so that they can be
    *                                      emailed.
    *
-   * @return ClientResponse When successful, the response will not contain a response object but only contains the
-   *     status. If there was a validation error or any other type of error, this will return the Errors object in the
-   *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
-   *     response will contain an Exception, which could be an IOException.
+   * @return ClientResponse When successful, the response will contain the verificationId for the user. If there was a
+   *     validation error or any other type of error, this will return the Errors object in the response. Additionally,
+   *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
+   *     Exception, which could be an IOException.
    */
   public function forgotPassword($forgotPasswordRequest)
   {
