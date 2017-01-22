@@ -222,8 +222,8 @@ Class PassportClient
    * Creates a notification server. You can optionally specify an id for the notification server when calling this
    * method, but it is not required.
    *
-   * @param string $notificationServerId      (Optional) The id for the notification server.
-   * @param string $notificationServerRequest The notification server request that contains all of the information used
+   * @param string $webhookId      (Optional) The id for the notification server.
+   * @param string $webhookRequest The notification server request that contains all of the information used
    *                                          to create the notification server.
    *
    * @return ClientResponse When successful, the response will contain the notification server object. If there was a
@@ -231,11 +231,11 @@ Class PassportClient
    *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
    *     Exception, which could be an IOException.
    */
-  public function createNotificationServer($notificationServerId, $notificationServerRequest)
+  public function createNotificationServer($webhookId, $webhookRequest)
   {
-    return $this->start()->uri("/api/notification-server")
-        ->urlSegment($notificationServerId)
-        ->request($notificationServerRequest)
+    return $this->start()->uri("/api/webhook")
+        ->urlSegment($webhookId)
+        ->request($webhookRequest)
         ->post()
         ->go();
   }
@@ -423,17 +423,17 @@ Class PassportClient
   /**
    * Deletes the notification server for the given id.
    *
-   * @param string $notificationServerId The id of the notification server to delete.
+   * @param string $webhookId The id of the notification server to delete.
    *
    * @return ClientResponse When successful, the response will not contain a response object but only contains the
    *     status. If there was a validation error or any other type of error, this will return the Errors object in the
    *     response. Additionally, if Passport could not be contacted because it is down or experiencing a failure, the
    *     response will contain an Exception, which could be an IOException.
    */
-  public function deleteNotificationServer($notificationServerId)
+  public function deleteNotificationServer($webhookId)
   {
-    return $this->start()->uri("/api/notification-server")
-        ->urlSegment($notificationServerId)
+    return $this->start()->uri("/api/webhook")
+        ->urlSegment($webhookId)
         ->delete()
         ->go();
   }
@@ -925,17 +925,17 @@ Class PassportClient
    * Retrieves the notification server for the given id. If you pass in null for the id, this will return all the
    * notification servers.
    *
-   * @param string $notificationServerId (Optional) The id of the notification server.
+   * @param string $webhookId (Optional) The id of the notification server.
    *
    * @return ClientResponse When successful, the response will contain the notification server for the id or all the
    *     notification servers. There are no errors associated with this request. Additionally, if Passport could not be
    *     contacted because it is down or experiencing a failure, the response will contain an Exception, which could be
    *     an IOException.
    */
-  public function retrieveNotificationServer($notificationServerId)
+  public function retrieveNotificationServer($webhookId)
   {
-    return $this->start()->uri("/api/notification-server")
-        ->urlSegment($notificationServerId)
+    return $this->start()->uri("/api/webhook")
+        ->urlSegment($webhookId)
         ->get()
         ->go();
   }
@@ -1299,19 +1299,19 @@ Class PassportClient
   /**
    * Updates the notification server with the given id.
    *
-   * @param string $notificationServerId      The id of the notification server to update.
-   * @param string $notificationServerRequest The request that contains all of the new notification server information.
+   * @param string $webhookId      The id of the notification server to update.
+   * @param string $webhookRequest The request that contains all of the new notification server information.
    *
    * @return ClientResponse When successful, the response will contain the notification server. If there was a
    *     validation error or any other type of error, this will return the Errors object in the response. Additionally,
    *     if Passport could not be contacted because it is down or experiencing a failure, the response will contain an
    *     Exception, which could be an IOException.
    */
-  public function updateNotificationServer($notificationServerId, $notificationServerRequest)
+  public function updateNotificationServer($webhookId, $webhookRequest)
   {
-    return $this->start()->uri("/api/notification-server")
-        ->urlSegment($notificationServerId)
-        ->request($notificationServerRequest)
+    return $this->start()->uri("/api/webhook")
+        ->urlSegment($webhookId)
+        ->request($webhookRequest)
         ->put()
         ->go();
   }
