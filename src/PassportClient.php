@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (c) 2016, Inversoft Inc., All Rights Reserved
+ * Copyright (c) 2016-2017, Inversoft Inc., All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +14,6 @@
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
  * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
- *
- * @author Derek Klatt
  */
 
 Class PassportClient
@@ -137,7 +135,7 @@ Class PassportClient
    */
   public function createApplication($applicationId, $applicationRequest)
   {
-    return $this->start()->uri("/api/user/action")
+    return $this->start()->uri("/api/application")
         ->urlSegment($applicationId)
         ->request($applicationRequest)
         ->post()
@@ -373,7 +371,7 @@ Class PassportClient
   {
     return $this->start()->uri("/api/application")
         ->urlSegment($applicationId)
-        ->urlParameter("hardDelete", true)
+        ->urlParameter("hardDelete", "true")
         ->delete()
         ->go();
   }
@@ -474,7 +472,7 @@ Class PassportClient
   {
     return $this->start()->uri("/api/user-action")
         ->urlSegment($userActionId)
-        ->urlParameter("hardDelete", true)
+        ->urlParameter("hardDelete", "true")
         ->delete()
         ->go();
   }
@@ -639,7 +637,7 @@ Class PassportClient
   {
     return $this->start()->uri("/api/application")
         ->urlSegment($applicationId)
-        ->urlParameter("reactivate", true)
+        ->urlParameter("reactivate", "true")
         ->put()
         ->go();
   }
@@ -658,7 +656,7 @@ Class PassportClient
   {
     return $this->start()->uri("/api/user")
         ->urlSegment($userId)
-        ->urlParameter("reactivate", true)
+        ->urlParameter("reactivate", "true")
         ->put()
         ->go();
   }
@@ -677,7 +675,7 @@ Class PassportClient
   {
     return $this->start()->uri("/api/user-action")
         ->urlSegment($userActionId)
-        ->urlParameter("reactivate", true)
+        ->urlParameter("reactivate", "true")
         ->put()
         ->go();
   }
@@ -853,7 +851,7 @@ Class PassportClient
   public function retrieveInactiveApplications()
   {
     return $this->start()->uri("/api/application")
-        ->urlParameter("inactive", true)
+        ->urlParameter("inactive", "true")
         ->get()
         ->go();
   }
@@ -868,7 +866,7 @@ Class PassportClient
   public function retrieveInactiveUserActions()
   {
     return $this->start()->uri("/api/user-action")
-        ->urlParameter("inactive", true)
+        ->urlParameter("inactive", "true")
         ->get()
         ->go();
   }

@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2016, Inversoft Inc., All Rights Reserved
+ * Copyright (c) 2016-2017, Inversoft Inc., All Rights Reserved
  */
 savantVersion = "1.0.0"
 
-project(group: "com.inversoft.passport", name: "passport-php-client", version: "1.8.1", licenses: ["ApacheV2_0"]) {
+project(group: "com.inversoft.passport", name: "passport-php-client", version: "1.8.2", licenses: ["ApacheV2_0"]) {
   workflow {
     standard()
   }
@@ -32,7 +32,7 @@ target(name: "clean", description: "Cleans build directory") {
 target(name: "int", description: "Releases a local integration build of the project") {
 
   file.copy(to: "build/php") {
-    fileSet(dir: "src/main/php")
+    fileSet(dir: "src")
   }
 
   file.delete {
@@ -47,6 +47,34 @@ target(name: "int", description: "Releases a local integration build of the proj
 
 target(name: "idea", description: "Updates the IntelliJ IDEA module file") {
   idea.iml()
+}
+
+target(name: "setup-phpunit", description: "Setup PHP unit") {
+  def download = 'wget https://phar.phpunit.de/phpunit.phar'.execute()
+  download.consumeProcessOutput(System.out, System.err)
+  download.waitFor()
+
+  def chmod = 'chmod +x phpunit.phar'.execute()
+  chmod.consumeProcessOutput(System.out, System.err)
+  chmod.waitFor()
+
+  def move = 'mv phpunit.phar /usr/local/bin/phpunit'.execute()
+  move.consumeProcessOutput(System.out, System.err)
+  move.waitFor()
+
+  def chown = 'sudo chown root /usr/local/bin/phpunit'.execute()
+  chown.consumeProcessOutput(System.out, System.err)
+}
+
+target(name: "test", description: "Runs the tests", dependsOn: "int") {
+  def test = 'which phpunit'.execute().exitValue()
+  if (test == 1) {
+    println "Error. I can't run tests until you install PHPUNIT. Run 'sb setup-phpunit"
+    exit
+  }
+
+  def proc = 'phpunit --bootstrap src/ tests/'.execute()
+  proc.consumeProcessOutput(System.out, System.err)
 }
 
 target(name: "bundle", description: "Builds the project release bundle", dependsOn: "int") {
