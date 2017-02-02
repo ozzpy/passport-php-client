@@ -9,7 +9,6 @@ require_once __DIR__ . '/../src/PassportClient.php';
  */
 final class PassportClientTest extends TestCase
 {
-
   private $client;
 
   private $application;
