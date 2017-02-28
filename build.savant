@@ -3,7 +3,7 @@
  */
 savantVersion = "1.0.0"
 
-project(group: "com.inversoft.passport", name: "passport-php-client", version: "1.8.3", licenses: ["ApacheV2_0"]) {
+project(group: "com.inversoft.passport", name: "passport-php-client", version: "1.9.0", licenses: ["ApacheV2_0"]) {
   workflow {
     standard()
   }
