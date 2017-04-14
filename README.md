@@ -7,7 +7,7 @@ For additional information and documentation on Passport refer to [https://www.i
 
 #### Install the Code
 
-To use the client library on your project simply copy the PHP source files from the `src/main/php` directory to your project.
+To use the client library on your project simply copy the PHP source files from the `src` directory to your project.
 
 #### Create the Client
 
