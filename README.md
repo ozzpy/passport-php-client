@@ -3,27 +3,13 @@ If you're integrating Passport with a PHP application, this library will speed u
 
 For additional information and documentation on Passport refer to [https://www.inversoft.com](https://www.inversoft.com).
 
-**Note:** This project uses the Savant build tool. To compile using using Savant, follow these instructions:
-
-```bash
-$ mkdir ~/savant
-$ cd ~/savant
-$ wget http://savant.inversoft.org/org/savantbuild/savant-core/1.0.0/savant-1.0.0.tar.gz
-$ tar xvfz savant-1.0.0.tar.gz
-$ ln -s ./savant-1.0.0 current
-$ export PATH=$PATH:~/savant/current/bin/
-```
-
-Then, perform an integration build of the project by running:
-```bash
-$ sb int
-```
-
-For more information, checkout [savantbuild.org](http://savantbuild.org/).
-
 ### Examples Usages:
 
-#### Build the Client
+#### Install the Code
+
+To use the client library on your project simply copy the PHP source files from the `src/main/php` directory to your project.
+
+#### Create the Client
 
 ```PHP
 $apiKey = "5a826da2-1e3a-49df-85ba-cd88575e4e9d";
